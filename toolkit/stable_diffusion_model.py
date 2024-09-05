@@ -21,26 +21,26 @@ from torch.utils.checkpoint import checkpoint
 from tqdm import tqdm
 from torchvision.transforms import Resize, transforms
 
-from ostris_ai_toolkit.toolkit.assistant_lora import load_assistant_lora_from_path
-from ostris_ai_toolkit.toolkit.clip_vision_adapter import ClipVisionAdapter
-from ostris_ai_toolkit.toolkit.custom_adapter import CustomAdapter
-from ostris_ai_toolkit.toolkit.ip_adapter import IPAdapter
+from ..toolkit.assistant_lora import load_assistant_lora_from_path
+from ..toolkit.clip_vision_adapter import ClipVisionAdapter
+from ..toolkit.custom_adapter import CustomAdapter
+from ..toolkit.ip_adapter import IPAdapter
 from library.model_util import convert_unet_state_dict_to_sd, convert_text_encoder_state_dict_to_sd_v2, \
     convert_vae_state_dict, load_vae
-from ostris_ai_toolkit.toolkit import train_tools
-from ostris_ai_toolkit.toolkit.config_modules import ModelConfig, GenerateImageConfig
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
-from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT, KEYMAPS_ROOT
-from ostris_ai_toolkit.toolkit.prompt_utils import inject_trigger_into_prompt, PromptEmbeds, concat_prompt_embeds
-from ostris_ai_toolkit.toolkit.reference_adapter import ReferenceAdapter
-from ostris_ai_toolkit.toolkit.sampler import get_sampler
-from ostris_ai_toolkit.toolkit.samplers.custom_flowmatch_sampler import CustomFlowMatchEulerDiscreteScheduler
-from ostris_ai_toolkit.toolkit.saving import save_ldm_model_from_diffusers, get_ldm_state_dict_from_diffusers
-from ostris_ai_toolkit.toolkit.sd_device_states_presets import empty_preset
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_noise_offset
+from ..toolkit import train_tools
+from ..toolkit.config_modules import ModelConfig, GenerateImageConfig
+from ..toolkit.metadata import get_meta_for_safetensors
+from ..toolkit.paths import REPOS_ROOT, KEYMAPS_ROOT
+from ..toolkit.prompt_utils import inject_trigger_into_prompt, PromptEmbeds, concat_prompt_embeds
+from ..toolkit.reference_adapter import ReferenceAdapter
+from ..toolkit.sampler import get_sampler
+from ..toolkit.samplers.custom_flowmatch_sampler import CustomFlowMatchEulerDiscreteScheduler
+from ..toolkit.saving import save_ldm_model_from_diffusers, get_ldm_state_dict_from_diffusers
+from ..toolkit.sd_device_states_presets import empty_preset
+from ..toolkit.train_tools import get_torch_dtype, apply_noise_offset
 from einops import rearrange, repeat
 import torch
-from ostris_ai_toolkit.toolkit.pipelines import CustomStableDiffusionXLPipeline, CustomStableDiffusionPipeline, \
+from ..toolkit.pipelines import CustomStableDiffusionXLPipeline, CustomStableDiffusionPipeline, \
     StableDiffusionKDiffusionXLPipeline, StableDiffusionXLRefinerPipeline, FluxWithCFGPipeline
 from diffusers import StableDiffusionPipeline, StableDiffusionXLPipeline, T2IAdapter, DDPMScheduler, \
     StableDiffusionXLAdapterPipeline, StableDiffusionAdapterPipeline, DiffusionPipeline, PixArtTransformer2DModel, \
@@ -56,14 +56,14 @@ from diffusers import PixArtAlphaPipeline, DPMSolverMultistepScheduler, PixArtSi
 from transformers import T5EncoderModel, BitsAndBytesConfig, UMT5EncoderModel, T5TokenizerFast
 from transformers import CLIPTextModel, CLIPTokenizer, CLIPTextModelWithProjection
 
-from ostris_ai_toolkit.toolkit.paths import ORIG_CONFIGS_ROOT, DIFFUSERS_CONFIGS_ROOT
+from ..toolkit.paths import ORIG_CONFIGS_ROOT, DIFFUSERS_CONFIGS_ROOT
 from huggingface_hub import hf_hub_download
 
 from optimum.quanto import freeze, qfloat8, quantize, QTensor, qint4
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.lora_special import LoRASpecialNetwork
+    from ..toolkit.lora_special import LoRASpecialNetwork
 
 # tell it to shut up
 diffusers.logging.set_verbosity(diffusers.logging.ERROR)
@@ -201,7 +201,7 @@ class StableDiffusion:
         model_path = self.model_config.name_or_path
         if 'civitai.com' in self.model_config.name_or_path:
             # load is a civit ai model, use the loader.
-            from ostris_ai_toolkit.toolkit.civitai import get_model_path_from_url
+            from ..toolkit.civitai import get_model_path_from_url
             model_path = get_model_path_from_url(self.model_config.name_or_path)
 
         load_args = {}

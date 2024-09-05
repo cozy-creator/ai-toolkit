@@ -8,22 +8,22 @@ from typing import List, Optional
 from PIL import Image
 from PIL.ImageOps import exif_transpose
 
-from ostris_ai_toolkit.toolkit.basic import flush
-from ostris_ai_toolkit.toolkit.models.RRDB import RRDBNet as ESRGAN, esrgan_safetensors_keys
+from ...toolkit.basic import flush
+from ...toolkit.models.RRDB import RRDBNet as ESRGAN, esrgan_safetensors_keys
 from safetensors.torch import save_file, load_file
 from torch.utils.data import DataLoader, ConcatDataset
 import torch
 from torch import nn
 from torchvision.transforms import transforms
 
-from ostris_ai_toolkit.jobs.process import BaseTrainProcess
-from ostris_ai_toolkit.toolkit.data_loader import AugmentedImageDataset
-from ostris_ai_toolkit.toolkit.esrgan_utils import convert_state_dict_to_basicsr, convert_basicsr_state_dict_to_save_format
-from ostris_ai_toolkit.toolkit.losses import ComparativeTotalVariation, get_gradient_penalty, PatternLoss
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
-from ostris_ai_toolkit.toolkit.optimizer import get_optimizer
-from ostris_ai_toolkit.toolkit.style import get_style_model_and_losses
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
+from ...jobs.process import BaseTrainProcess
+from ...toolkit.data_loader import AugmentedImageDataset
+from ...toolkit.esrgan_utils import convert_state_dict_to_basicsr, convert_basicsr_state_dict_to_save_format
+from ...toolkit.losses import ComparativeTotalVariation, get_gradient_penalty, PatternLoss
+from ...toolkit.metadata import get_meta_for_safetensors
+from ...toolkit.optimizer import get_optimizer
+from ...toolkit.style import get_style_model_and_losses
+from ...toolkit.train_tools import get_torch_dtype
 from diffusers import AutoencoderKL
 from tqdm import tqdm
 import time

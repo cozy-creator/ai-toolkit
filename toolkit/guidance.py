@@ -1,11 +1,11 @@
 import torch
 from typing import Literal, Optional
 
-from ostris_ai_toolkit.toolkit.basic import value_map
-from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import DataLoaderBatchDTO
-from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds, concat_prompt_embeds
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
+from ..toolkit.basic import value_map
+from ..toolkit.data_transfer_object.data_loader import DataLoaderBatchDTO
+from ..toolkit.prompt_utils import PromptEmbeds, concat_prompt_embeds
+from ..toolkit.stable_diffusion_model import StableDiffusion
+from ..toolkit.train_tools import get_torch_dtype
 
 GuidanceType = Literal["targeted", "polarity", "targeted_polarity", "direct"]
 

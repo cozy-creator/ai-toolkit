@@ -8,10 +8,10 @@ from typing import TYPE_CHECKING, Union, List
 
 from optimum.quanto import QBytesTensor, QTensor
 
-from ostris_ai_toolkit.toolkit.network_mixins import ToolkitModuleMixin, ExtractableModuleMixin
+from ...toolkit.network_mixins import ToolkitModuleMixin, ExtractableModuleMixin
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.lora_special import LoRASpecialNetwork
+    from ...toolkit.lora_special import LoRASpecialNetwork
 
 # diffusers specific stuff
 LINEAR_MODULES = [

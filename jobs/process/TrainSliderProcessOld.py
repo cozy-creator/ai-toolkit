@@ -5,17 +5,17 @@ from collections import OrderedDict
 import os
 from typing import Optional
 
-from ostris_ai_toolkit.toolkit.config_modules import SliderConfig
-from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
+from ...toolkit.config_modules import SliderConfig
+from ...toolkit.paths import REPOS_ROOT
 import sys
 
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import PromptEmbeds
+from ...toolkit.stable_diffusion_model import PromptEmbeds
 
 sys.path.append(REPOS_ROOT)
 sys.path.append(os.path.join(REPOS_ROOT, 'leco'))
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_noise_offset
+from ...toolkit.train_tools import get_torch_dtype, apply_noise_offset
 import gc
-from ostris_ai_toolkit.toolkit import train_tools
+from ...toolkit import train_tools
 
 import torch
 from leco import train_util, model_util

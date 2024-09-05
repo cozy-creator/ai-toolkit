@@ -21,41 +21,41 @@ import torch.backends.cuda
 from huggingface_hub import HfApi, Repository, interpreter_login
 from huggingface_hub.utils import HfFolder
 
-from ostris_ai_toolkit.toolkit.basic import value_map
-from ostris_ai_toolkit.toolkit.clip_vision_adapter import ClipVisionAdapter
-from ostris_ai_toolkit.toolkit.custom_adapter import CustomAdapter
-from ostris_ai_toolkit.toolkit.data_loader import get_dataloader_from_datasets, trigger_dataloader_setup_epoch
-from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import FileItemDTO, DataLoaderBatchDTO
-from ostris_ai_toolkit.toolkit.ema import ExponentialMovingAverage
-from ostris_ai_toolkit.toolkit.embedding import Embedding
-from ostris_ai_toolkit.toolkit.image_utils import show_tensors, show_latents, reduce_contrast
-from ostris_ai_toolkit.toolkit.ip_adapter import IPAdapter
-from ostris_ai_toolkit.toolkit.lora_special import LoRASpecialNetwork
-from ostris_ai_toolkit.toolkit.lorm import convert_diffusers_unet_to_lorm, count_parameters, print_lorm_extract_details, \
+from ...toolkit.basic import value_map
+from ...toolkit.clip_vision_adapter import ClipVisionAdapter
+from ...toolkit.custom_adapter import CustomAdapter
+from ...toolkit.data_loader import get_dataloader_from_datasets, trigger_dataloader_setup_epoch
+from ...toolkit.data_transfer_object.data_loader import FileItemDTO, DataLoaderBatchDTO
+from ...toolkit.ema import ExponentialMovingAverage
+from ...toolkit.embedding import Embedding
+from ...toolkit.image_utils import show_tensors, show_latents, reduce_contrast
+from ...toolkit.ip_adapter import IPAdapter
+from ...toolkit.lora_special import LoRASpecialNetwork
+from ...toolkit.lorm import convert_diffusers_unet_to_lorm, count_parameters, print_lorm_extract_details, \
     lorm_ignore_if_contains, lorm_parameter_threshold, LORM_TARGET_REPLACE_MODULE
-from ostris_ai_toolkit.toolkit.lycoris_special import LycorisSpecialNetwork
-from ostris_ai_toolkit.toolkit.network_mixins import Network
-from ostris_ai_toolkit.toolkit.optimizer import get_optimizer
-from ostris_ai_toolkit.toolkit.paths import CONFIG_ROOT
-from ostris_ai_toolkit.toolkit.progress_bar import ToolkitProgressBar
-from ostris_ai_toolkit.toolkit.reference_adapter import ReferenceAdapter
-from ostris_ai_toolkit.toolkit.sampler import get_sampler
-from ostris_ai_toolkit.toolkit.saving import save_t2i_from_diffusers, load_t2i_model, save_ip_adapter_from_diffusers, \
+from ...toolkit.lycoris_special import LycorisSpecialNetwork
+from ...toolkit.network_mixins import Network
+from ...toolkit.optimizer import get_optimizer
+from ...toolkit.paths import CONFIG_ROOT
+from ...toolkit.progress_bar import ToolkitProgressBar
+from ...toolkit.reference_adapter import ReferenceAdapter
+from ...toolkit.sampler import get_sampler
+from ...toolkit.saving import save_t2i_from_diffusers, load_t2i_model, save_ip_adapter_from_diffusers, \
     load_ip_adapter_model, load_custom_adapter_model
 
-from ostris_ai_toolkit.toolkit.scheduler import get_lr_scheduler
-from ostris_ai_toolkit.toolkit.sd_device_states_presets import get_train_sd_device_state_preset
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+from ...toolkit.scheduler import get_lr_scheduler
+from ...toolkit.sd_device_states_presets import get_train_sd_device_state_preset
+from ...toolkit.stable_diffusion_model import StableDiffusion
 
-from ostris_ai_toolkit.jobs.process import BaseTrainProcess
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors, load_metadata_from_safetensors, add_base_model_info_to_meta, \
+from ...jobs.process import BaseTrainProcess
+from ...toolkit.metadata import get_meta_for_safetensors, load_metadata_from_safetensors, add_base_model_info_to_meta, \
     parse_metadata_from_safetensors
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, LearnableSNRGamma, apply_learnable_snr_gos, apply_snr_weight
+from ...toolkit.train_tools import get_torch_dtype, LearnableSNRGamma, apply_learnable_snr_gos, apply_snr_weight
 import gc
 
 from tqdm import tqdm
 
-from ostris_ai_toolkit.toolkit.config_modules import SaveConfig, LogingConfig, SampleConfig, NetworkConfig, TrainConfig, ModelConfig, \
+from ...toolkit.config_modules import SaveConfig, LogingConfig, SampleConfig, NetworkConfig, TrainConfig, ModelConfig, \
     GenerateImageConfig, EmbeddingConfig, DatasetConfig, preprocess_dataset_raw_config, AdapterConfig, GuidanceConfig
 
 

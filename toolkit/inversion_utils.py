@@ -4,9 +4,9 @@ import torch
 import os
 from tqdm import tqdm
 
-from ostris_ai_toolkit.toolkit import train_tools
-from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+from ..toolkit import train_tools
+from ..toolkit.prompt_utils import PromptEmbeds
+from ..toolkit.stable_diffusion_model import StableDiffusion
 
 
 def mu_tilde(model, xt, x0, timestep):

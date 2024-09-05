@@ -8,15 +8,15 @@ import random
 from PIL import Image
 from PIL.ImageOps import exif_transpose
 
-from ostris_ai_toolkit.toolkit import image_utils
-from ostris_ai_toolkit.toolkit.dataloader_mixins import CaptionProcessingDTOMixin, ImageProcessingDTOMixin, LatentCachingFileItemDTOMixin, \
+from ...toolkit import image_utils
+from ...toolkit.dataloader_mixins import CaptionProcessingDTOMixin, ImageProcessingDTOMixin, LatentCachingFileItemDTOMixin, \
     ControlFileItemDTOMixin, ArgBreakMixin, PoiFileItemDTOMixin, MaskFileItemDTOMixin, AugmentationFileItemDTOMixin, \
     UnconditionalFileItemDTOMixin, ClipImageFileItemDTOMixin
 
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.config_modules import DatasetConfig
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+    from ...toolkit.config_modules import DatasetConfig
+    from ...toolkit.stable_diffusion_model import StableDiffusion
 
 printed_messages = []
 

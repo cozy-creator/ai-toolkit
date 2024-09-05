@@ -1,22 +1,22 @@
 import math
 import weakref
 
-from ostris_ai_toolkit.toolkit.config_modules import AdapterConfig
+from ...toolkit.config_modules import AdapterConfig
 import torch
 import torch.nn as nn
 from typing import TYPE_CHECKING, List, Dict, Any
-from ostris_ai_toolkit.toolkit.models.clip_fusion import ZipperBlock
-from ostris_ai_toolkit.toolkit.models.zipper_resampler import ZipperModule, ZipperResampler
+from ...toolkit.models.clip_fusion import ZipperBlock
+from ...toolkit.models.zipper_resampler import ZipperModule, ZipperResampler
 import sys
-from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
+from ...toolkit.paths import REPOS_ROOT
 
 sys.path.append(REPOS_ROOT)
 from ip_adapter.resampler import Resampler
 from collections import OrderedDict
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.lora_special import LoRAModule
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+    from ...toolkit.lora_special import LoRAModule
+    from ...toolkit.stable_diffusion_model import StableDiffusion
 
 
 class MLP(nn.Module):

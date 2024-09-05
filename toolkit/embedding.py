@@ -8,11 +8,11 @@ from typing import TYPE_CHECKING
 
 from safetensors.torch import save_file
 
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
+from ..toolkit.metadata import get_meta_for_safetensors
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
-    from ostris_ai_toolkit.toolkit.config_modules import EmbeddingConfig
+    from ..toolkit.stable_diffusion_model import StableDiffusion
+    from ..toolkit.config_modules import EmbeddingConfig
 
 
 # this is a frankenstein mix of automatic1111 and my own code

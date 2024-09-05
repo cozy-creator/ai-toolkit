@@ -6,7 +6,7 @@ import oyaml as yaml
 import re
 from collections import OrderedDict
 
-from ostris_ai_toolkit.toolkit.paths import TOOLKIT_ROOT
+from ..toolkit.paths import TOOLKIT_ROOT
 
 possible_extensions = ['.json', '.jsonc', '.yaml', '.yml']
 

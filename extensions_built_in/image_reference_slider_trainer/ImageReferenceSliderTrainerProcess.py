@@ -6,17 +6,17 @@ from contextlib import nullcontext
 from typing import Optional, Union, List
 from torch.utils.data import ConcatDataset, DataLoader
 
-from ostris_ai_toolkit.toolkit.config_modules import ReferenceDatasetConfig
-from ostris_ai_toolkit.toolkit.data_loader import PairedImageDataset
-from ostris_ai_toolkit.toolkit.prompt_utils import concat_prompt_embeds, split_prompt_embeds
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion, PromptEmbeds
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_snr_weight
+from ...toolkit.config_modules import ReferenceDatasetConfig
+from ...toolkit.data_loader import PairedImageDataset
+from ...toolkit.prompt_utils import concat_prompt_embeds, split_prompt_embeds
+from ...toolkit.stable_diffusion_model import StableDiffusion, PromptEmbeds
+from ...toolkit.train_tools import get_torch_dtype, apply_snr_weight
 import gc
-from ostris_ai_toolkit.toolkit import train_tools
+from ...toolkit import train_tools
 import torch
-from ostris_ai_toolkit.jobs.process import BaseSDTrainProcess
+from ...jobs.process import BaseSDTrainProcess
 import random
-from ostris_ai_toolkit.toolkit.basic import value_map
+from ...toolkit.basic import value_map
 
 
 def flush():

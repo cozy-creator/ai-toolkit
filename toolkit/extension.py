@@ -3,7 +3,7 @@ import importlib
 import pkgutil
 from typing import List
 
-from ostris_ai_toolkit.toolkit.paths import TOOLKIT_ROOT
+from ..toolkit.paths import TOOLKIT_ROOT
 
 
 class Extension(object):

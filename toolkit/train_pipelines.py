@@ -4,8 +4,8 @@ import torch
 from diffusers.pipelines.stable_diffusion_xl import StableDiffusionXLPipelineOutput
 from diffusers.pipelines.stable_diffusion_xl.pipeline_stable_diffusion_xl import rescale_noise_cfg
 
-from ostris_ai_toolkit.toolkit.lora_special import LoRASpecialNetwork
-from ostris_ai_toolkit.toolkit.pipelines import CustomStableDiffusionXLPipeline
+from ..toolkit.lora_special import LoRASpecialNetwork
+from ..toolkit.pipelines import CustomStableDiffusionXLPipeline
 
 
 class TransferStableDiffusionXLPipeline(CustomStableDiffusionXLPipeline):

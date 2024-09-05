@@ -10,12 +10,12 @@ from torch.nn import Parameter
 from torch.nn.modules.module import T
 from transformers import CLIPImageProcessor, CLIPVisionModelWithProjection
 
-from ostris_ai_toolkit.toolkit.models.clip_pre_processor import CLIPImagePreProcessor
-from ostris_ai_toolkit.toolkit.models.zipper_resampler import ZipperResampler
-from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
-from ostris_ai_toolkit.toolkit.saving import load_ip_adapter_model
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
-from ostris_ai_toolkit.toolkit.util.inverse_cfg import inverse_classifier_guidance
+from ..toolkit.models.clip_pre_processor import CLIPImagePreProcessor
+from ..toolkit.models.zipper_resampler import ZipperResampler
+from ..toolkit.paths import REPOS_ROOT
+from ..toolkit.saving import load_ip_adapter_model
+from ..toolkit.train_tools import get_torch_dtype
+from ..toolkit.util.inverse_cfg import inverse_classifier_guidance
 
 sys.path.append(REPOS_ROOT)
 from typing import TYPE_CHECKING, Union, Iterator, Mapping, Any, Tuple, List, Optional
@@ -24,13 +24,13 @@ from ip_adapter.attention_processor import AttnProcessor, IPAttnProcessor, IPAtt
     AttnProcessor2_0
 from ip_adapter.ip_adapter import ImageProjModel
 from ip_adapter.resampler import PerceiverAttention, FeedForward, Resampler
-from ostris_ai_toolkit.toolkit.config_modules import AdapterConfig
-from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds
+from ..toolkit.config_modules import AdapterConfig
+from ..toolkit.prompt_utils import PromptEmbeds
 import weakref
 from diffusers import FluxTransformer2DModel
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+    from ..toolkit.stable_diffusion_model import StableDiffusion
 
 from transformers import (
     CLIPImageProcessor,
@@ -42,7 +42,7 @@ from transformers import (
     ConvNextForImageClassification,
     ConvNextImageProcessor
 )
-from ostris_ai_toolkit.toolkit.models.size_agnostic_feature_encoder import SAFEImageProcessor, SAFEVisionModel
+from ..toolkit.models.size_agnostic_feature_encoder import SAFEImageProcessor, SAFEVisionModel
 
 from transformers import ViTHybridImageProcessor, ViTHybridForImageClassification
 

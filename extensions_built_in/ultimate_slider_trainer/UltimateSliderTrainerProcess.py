@@ -6,26 +6,26 @@ from contextlib import nullcontext
 from typing import Optional, Union, List
 from torch.utils.data import ConcatDataset, DataLoader
 
-from ostris_ai_toolkit.toolkit.config_modules import ReferenceDatasetConfig
-from ostris_ai_toolkit.toolkit.data_loader import PairedImageDataset
-from ostris_ai_toolkit.toolkit.prompt_utils import concat_prompt_embeds, split_prompt_embeds, build_latent_image_batch_for_prompt_pair
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion, PromptEmbeds
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_snr_weight
+from ...toolkit.config_modules import ReferenceDatasetConfig
+from ...toolkit.data_loader import PairedImageDataset
+from ...toolkit.prompt_utils import concat_prompt_embeds, split_prompt_embeds, build_latent_image_batch_for_prompt_pair
+from ...toolkit.stable_diffusion_model import StableDiffusion, PromptEmbeds
+from ...toolkit.train_tools import get_torch_dtype, apply_snr_weight
 import gc
-from ostris_ai_toolkit.toolkit import train_tools
+from ...toolkit import train_tools
 import torch
-from ostris_ai_toolkit.jobs.process import BaseSDTrainProcess
+from ...jobs.process import BaseSDTrainProcess
 import random
 
 import random
 from collections import OrderedDict
 from tqdm import tqdm
 
-from ostris_ai_toolkit.toolkit.config_modules import SliderConfig
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_snr_weight
+from ...toolkit.config_modules import SliderConfig
+from ...toolkit.train_tools import get_torch_dtype, apply_snr_weight
 import gc
-from ostris_ai_toolkit.toolkit import train_tools
-from ostris_ai_toolkit.toolkit.prompt_utils import \
+from ...toolkit import train_tools
+from ...toolkit.prompt_utils import \
     EncodedPromptPair, ACTION_TYPES_SLIDER, \
     EncodedAnchor, concat_prompt_pairs, \
     concat_anchors, PromptEmbedsCache, encode_prompts_to_cache, build_prompt_pair_batch_from_cache, split_anchors, \

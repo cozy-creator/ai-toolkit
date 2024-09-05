@@ -17,8 +17,8 @@ from collections import OrderedDict
 import json
 from tqdm import tqdm
 
-from ostris_ai_toolkit.toolkit.config_modules import ModelConfig
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+from ..toolkit.config_modules import ModelConfig
+from ..toolkit.stable_diffusion_model import StableDiffusion
 
 KEYMAPS_FOLDER = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'toolkit', 'keymaps')
 

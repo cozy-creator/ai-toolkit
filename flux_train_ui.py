@@ -18,7 +18,7 @@ from slugify import slugify
 from transformers import AutoProcessor, AutoModelForCausalLM
 
 sys.path.insert(0, "ai-toolkit")
-from ostris_ai_toolkit.toolkit.job import get_job
+from .toolkit.job import get_job
 
 MAX_IMAGES = 150
 

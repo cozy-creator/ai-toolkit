@@ -2,7 +2,7 @@ import copy
 import json
 from collections import OrderedDict
 
-from ostris_ai_toolkit.toolkit.timer import Timer
+from ...toolkit.timer import Timer
 
 
 class BaseProcess(object):
@@ -72,4 +72,4 @@ class BaseProcess(object):
         self.meta.update(additional_meta)
 
 
-from ostris_ai_toolkit.jobs import BaseJob
+from ...jobs import BaseJob

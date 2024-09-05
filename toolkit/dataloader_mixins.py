@@ -14,21 +14,21 @@ from safetensors.torch import load_file, save_file
 from tqdm import tqdm
 from transformers import CLIPImageProcessor, CLIPVisionModelWithProjection
 
-from ostris_ai_toolkit.toolkit.basic import flush, value_map
-from ostris_ai_toolkit.toolkit.buckets import get_bucket_for_image_size, get_resolution
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
-from ostris_ai_toolkit.toolkit.prompt_utils import inject_trigger_into_prompt
+from ..toolkit.basic import flush, value_map
+from ..toolkit.buckets import get_bucket_for_image_size, get_resolution
+from ..toolkit.metadata import get_meta_for_safetensors
+from ..toolkit.prompt_utils import inject_trigger_into_prompt
 from torchvision import transforms
 from PIL import Image, ImageFilter, ImageOps
 from PIL.ImageOps import exif_transpose
 import albumentations as A
 
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
+from ..toolkit.train_tools import get_torch_dtype
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.data_loader import AiToolkitDataset
-    from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import FileItemDTO
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+    from ..toolkit.data_loader import AiToolkitDataset
+    from ..toolkit.data_transfer_object.data_loader import FileItemDTO
+    from ..toolkit.stable_diffusion_model import StableDiffusion
 
 # def get_associated_caption_from_img_path(img_path):
 # https://demo.albumentations.ai/
@@ -148,8 +148,8 @@ class CaptionMixin:
 
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.config_modules import DatasetConfig
-    from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import FileItemDTO
+    from ..toolkit.config_modules import DatasetConfig
+    from ..toolkit.data_transfer_object.data_loader import FileItemDTO
 
 
 class Bucket:

@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from ostris_ai_toolkit.toolkit.lycoris_utils import extract_diff
+from ...toolkit.lycoris_utils import extract_diff
 from .BaseExtractProcess import BaseExtractProcess
 
 mode_dict = {

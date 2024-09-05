@@ -1,7 +1,7 @@
 from collections import OrderedDict
 import gc
 import torch
-from ostris_ai_toolkit.jobs.process import BaseExtensionProcess
+from ...jobs.process import BaseExtensionProcess
 
 
 def flush():

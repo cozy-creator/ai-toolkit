@@ -1,6 +1,6 @@
 from typing import Union, OrderedDict
 
-from ostris_ai_toolkit.toolkit.config import get_config
+from ..toolkit.config import get_config
 
 
 def get_job(
@@ -13,23 +13,23 @@ def get_job(
 
     job = config['job']
     if job == 'extract':
-        from ostris_ai_toolkit.jobs import ExtractJob
+        from ..jobs import ExtractJob
         return ExtractJob(config)
     if job == 'train':
-        from ostris_ai_toolkit.jobs import TrainJob
+        from ..jobs import TrainJob
         return TrainJob(config)
     if job == 'mod':
-        from ostris_ai_toolkit.jobs import ModJob
+        from ..jobs import ModJob
         return ModJob(config)
     if job == 'generate':
-        from ostris_ai_toolkit.jobs import GenerateJob
+        from ..jobs import GenerateJob
         return GenerateJob(config)
     if job == 'extension':
-        from ostris_ai_toolkit.jobs import ExtensionJob
+        from ..jobs import ExtensionJob
         return ExtensionJob(config)
 
     # elif job == 'train':
-    #     from ostris_ai_toolkit.jobs import TrainJob
+    #     from ..jobs import TrainJob
     #     return TrainJob(config)
     else:
         raise ValueError(f'Unknown job type {job}')

@@ -1,14 +1,14 @@
 import json
 import os
 
-from ostris_ai_toolkit.jobs import BaseJob
-from ostris_ai_toolkit.toolkit.kohya_model_util import load_models_from_stable_diffusion_checkpoint
+from ..jobs import BaseJob
+from ..toolkit.kohya_model_util import load_models_from_stable_diffusion_checkpoint
 from collections import OrderedDict
 from typing import List
-from ostris_ai_toolkit.jobs.process import BaseExtractProcess, TrainFineTuneProcess
+from ..jobs.process import BaseExtractProcess, TrainFineTuneProcess
 from datetime import datetime
 import yaml
-from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
+from ..toolkit.paths import REPOS_ROOT
 
 import sys
 

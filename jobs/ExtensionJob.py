@@ -1,8 +1,8 @@
 import os
 from collections import OrderedDict
-from ostris_ai_toolkit.jobs import BaseJob
-from ostris_ai_toolkit.toolkit.extension import get_all_extensions_process_dict
-from ostris_ai_toolkit.toolkit.paths import CONFIG_ROOT
+from ..jobs import BaseJob
+from ..toolkit.extension import get_all_extensions_process_dict
+from ..toolkit.paths import CONFIG_ROOT
 
 class ExtensionJob(BaseJob):
 

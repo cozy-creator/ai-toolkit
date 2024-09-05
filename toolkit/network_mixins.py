@@ -10,17 +10,17 @@ import weakref
 
 from tqdm import tqdm
 
-from ostris_ai_toolkit.toolkit.config_modules import NetworkConfig
-from ostris_ai_toolkit.toolkit.lorm import extract_conv, extract_linear, count_parameters
-from ostris_ai_toolkit.toolkit.metadata import add_model_hash_to_meta
-from ostris_ai_toolkit.toolkit.paths import KEYMAPS_ROOT
-from ostris_ai_toolkit.toolkit.saving import get_lora_keymap_from_model_keymap
+from ..toolkit.config_modules import NetworkConfig
+from ..toolkit.lorm import extract_conv, extract_linear, count_parameters
+from ..toolkit.metadata import add_model_hash_to_meta
+from ..toolkit.paths import KEYMAPS_ROOT
+from ..toolkit.saving import get_lora_keymap_from_model_keymap
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.lycoris_special import LycorisSpecialNetwork, LoConSpecialModule
-    from ostris_ai_toolkit.toolkit.lora_special import LoRASpecialNetwork, LoRAModule
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
-    from ostris_ai_toolkit.toolkit.models.DoRA import DoRAModule
+    from ..toolkit.lycoris_special import LycorisSpecialNetwork, LoConSpecialModule
+    from ..toolkit.lora_special import LoRASpecialNetwork, LoRAModule
+    from ..toolkit.stable_diffusion_model import StableDiffusion
+    from ..toolkit.models.DoRA import DoRAModule
 
 Network = Union['LycorisSpecialNetwork', 'LoRASpecialNetwork']
 Module = Union['LoConSpecialModule', 'LoRAModule', 'DoRAModule']

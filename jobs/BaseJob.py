@@ -2,7 +2,7 @@ import importlib
 from collections import OrderedDict
 from typing import List
 
-from ostris_ai_toolkit.jobs.process import BaseProcess
+from ..jobs.process import BaseProcess
 
 
 class BaseJob:

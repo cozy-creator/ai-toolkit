@@ -7,11 +7,11 @@ from typing import Optional, List
 from safetensors.torch import save_file, load_file
 from tqdm import tqdm
 
-from ostris_ai_toolkit.toolkit.layers import ReductionKernel
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import PromptEmbeds
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_noise_offset
+from ...toolkit.layers import ReductionKernel
+from ...toolkit.stable_diffusion_model import PromptEmbeds
+from ...toolkit.train_tools import get_torch_dtype, apply_noise_offset
 import gc
-from ostris_ai_toolkit.toolkit import train_tools
+from ...toolkit import train_tools
 
 import torch
 from leco import train_util, model_util

@@ -8,13 +8,13 @@ from typing import Union, TYPE_CHECKING
 
 from diffusers import Transformer2DModel
 from transformers import T5EncoderModel, CLIPTextModel, CLIPTokenizer, T5Tokenizer, CLIPVisionModelWithProjection
-from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
+from ...toolkit.paths import REPOS_ROOT
 sys.path.append(REPOS_ROOT)
 
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
-    from ostris_ai_toolkit.toolkit.custom_adapter import CustomAdapter
+    from ...toolkit.stable_diffusion_model import StableDiffusion
+    from ...toolkit.custom_adapter import CustomAdapter
 
 class AttnProcessor2_0(torch.nn.Module):
     r"""

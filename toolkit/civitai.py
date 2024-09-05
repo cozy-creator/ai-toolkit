@@ -1,4 +1,4 @@
-from ostris_ai_toolkit.toolkit.paths import MODELS_PATH
+from ..toolkit.paths import MODELS_PATH
 import requests
 import os
 import json

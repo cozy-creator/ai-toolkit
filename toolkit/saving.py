@@ -6,11 +6,11 @@ from typing import TYPE_CHECKING, Literal, Optional, Union
 import torch
 from safetensors.torch import load_file, save_file
 
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
-from ostris_ai_toolkit.toolkit.paths import KEYMAPS_ROOT
+from ..toolkit.train_tools import get_torch_dtype
+from ..toolkit.paths import KEYMAPS_ROOT
 
 if TYPE_CHECKING:
-    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+    from ..toolkit.stable_diffusion_model import StableDiffusion
 
 
 def get_slices_from_string(s: str) -> tuple:

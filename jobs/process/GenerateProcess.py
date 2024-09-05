@@ -6,12 +6,12 @@ from typing import ForwardRef, List, Optional, Union
 import torch
 from safetensors.torch import save_file, load_file
 
-from ostris_ai_toolkit.jobs.process.BaseProcess import BaseProcess
-from ostris_ai_toolkit.toolkit.config_modules import ModelConfig, GenerateImageConfig
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors, load_metadata_from_safetensors, add_model_hash_to_meta, \
+from ...jobs.process.BaseProcess import BaseProcess
+from ...toolkit.config_modules import ModelConfig, GenerateImageConfig
+from ...toolkit.metadata import get_meta_for_safetensors, load_metadata_from_safetensors, add_model_hash_to_meta, \
     add_base_model_info_to_meta
-from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
+from ...toolkit.stable_diffusion_model import StableDiffusion
+from ...toolkit.train_tools import get_torch_dtype
 import random
 
 

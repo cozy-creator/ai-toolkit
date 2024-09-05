@@ -13,15 +13,15 @@ import torch
 from torch import nn
 from torchvision.transforms import transforms
 
-from ostris_ai_toolkit.jobs.process import BaseTrainProcess
-from ostris_ai_toolkit.toolkit.image_utils import show_tensors
-from ostris_ai_toolkit.toolkit.kohya_model_util import load_vae, convert_diffusers_back_to_ldm
-from ostris_ai_toolkit.toolkit.data_loader import ImageDataset
-from ostris_ai_toolkit.toolkit.losses import ComparativeTotalVariation, get_gradient_penalty, PatternLoss
-from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
-from ostris_ai_toolkit.toolkit.optimizer import get_optimizer
-from ostris_ai_toolkit.toolkit.style import get_style_model_and_losses
-from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
+from ...jobs.process import BaseTrainProcess
+from ...toolkit.image_utils import show_tensors
+from ...toolkit.kohya_model_util import load_vae, convert_diffusers_back_to_ldm
+from ...toolkit.data_loader import ImageDataset
+from ...toolkit.losses import ComparativeTotalVariation, get_gradient_penalty, PatternLoss
+from ...toolkit.metadata import get_meta_for_safetensors
+from ...toolkit.optimizer import get_optimizer
+from ...toolkit.style import get_style_model_and_losses
+from ...toolkit.train_tools import get_torch_dtype
 from diffusers import AutoencoderKL
 from tqdm import tqdm
 import time

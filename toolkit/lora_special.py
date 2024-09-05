@@ -18,7 +18,7 @@ from .paths import SD_SCRIPTS_ROOT
 sys.path.append(SD_SCRIPTS_ROOT)
 
 from networks.lora import LoRANetwork, get_block_index
-from ostris_ai_toolkit.toolkit.models.DoRA import DoRAModule
+from ..toolkit.models.DoRA import DoRAModule
 
 from torch.utils.checkpoint import checkpoint
 

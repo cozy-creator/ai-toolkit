@@ -1,6 +1,6 @@
 from collections import OrderedDict
 from typing import ForwardRef
-from ostris_ai_toolkit.jobs.process.BaseProcess import BaseProcess
+from ...jobs.process.BaseProcess import BaseProcess
 
 
 class BaseExtensionProcess(BaseProcess):
