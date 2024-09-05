@@ -11,17 +11,17 @@ import random
 from transformers import CLIPImageProcessor
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from toolkit.paths import SD_SCRIPTS_ROOT
+from ostris_ai_toolkit.toolkit.paths import SD_SCRIPTS_ROOT
 import torchvision.transforms.functional
-from toolkit.image_utils import show_img, show_tensors
+from ostris_ai_toolkit.toolkit.image_utils import show_img, show_tensors
 
 sys.path.append(SD_SCRIPTS_ROOT)
 
 from library.model_util import load_vae
-from toolkit.data_transfer_object.data_loader import DataLoaderBatchDTO
-from toolkit.data_loader import AiToolkitDataset, get_dataloader_from_datasets, \
+from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import DataLoaderBatchDTO
+from ostris_ai_toolkit.toolkit.data_loader import AiToolkitDataset, get_dataloader_from_datasets, \
     trigger_dataloader_setup_epoch
-from toolkit.config_modules import DatasetConfig
+from ostris_ai_toolkit.toolkit.config_modules import DatasetConfig
 import argparse
 from tqdm import tqdm
 

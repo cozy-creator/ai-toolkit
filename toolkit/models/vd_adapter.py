@@ -8,13 +8,13 @@ from typing import Union, TYPE_CHECKING, Optional
 
 from diffusers import Transformer2DModel, FluxTransformer2DModel
 from transformers import T5EncoderModel, CLIPTextModel, CLIPTokenizer, T5Tokenizer, CLIPVisionModelWithProjection
-from toolkit.paths import REPOS_ROOT
+from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
 sys.path.append(REPOS_ROOT)
 
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion
-    from toolkit.custom_adapter import CustomAdapter
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.custom_adapter import CustomAdapter
 
 
 class MLP(nn.Module):

@@ -6,10 +6,10 @@ import torch
 import torch.nn as nn
 from safetensors.torch import load_file, save_file
 
-from toolkit.losses import get_gradient_penalty
-from toolkit.metadata import get_meta_for_safetensors
-from toolkit.optimizer import get_optimizer
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.toolkit.losses import get_gradient_penalty
+from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
+from ostris_ai_toolkit.toolkit.optimizer import get_optimizer
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 
 from typing import TYPE_CHECKING, Union
 
@@ -51,8 +51,8 @@ class Vgg19Critic(nn.Module):
 
 
 if TYPE_CHECKING:
-    from jobs.process.TrainVAEProcess import TrainVAEProcess
-    from jobs.process.TrainESRGANProcess import TrainESRGANProcess
+    from ostris_ai_toolkit.jobs.process.TrainVAEProcess import TrainVAEProcess
+    from ostris_ai_toolkit.jobs.process.TrainESRGANProcess import TrainESRGANProcess
 
 
 class Critic:

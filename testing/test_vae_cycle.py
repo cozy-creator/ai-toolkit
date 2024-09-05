@@ -3,7 +3,7 @@ import os
 import torch
 from safetensors.torch import load_file
 from collections import OrderedDict
-from toolkit.kohya_model_util import load_vae, convert_diffusers_back_to_ldm, vae_keys_squished_on_diffusers
+from ostris_ai_toolkit.toolkit.kohya_model_util import load_vae, convert_diffusers_back_to_ldm, vae_keys_squished_on_diffusers
 import json
 # this was just used to match the vae keys to the diffusers keys
 # you probably wont need this. Unless they change them.... again... again

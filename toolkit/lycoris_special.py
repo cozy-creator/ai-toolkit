@@ -8,7 +8,7 @@ from lycoris.modules.glora import GLoRAModule
 from torch import nn
 from transformers import CLIPTextModel
 from torch.nn import functional as F
-from toolkit.network_mixins import ToolkitNetworkMixin, ToolkitModuleMixin, ExtractableModuleMixin
+from ostris_ai_toolkit.toolkit.network_mixins import ToolkitNetworkMixin, ToolkitModuleMixin, ExtractableModuleMixin
 
 # diffusers specific stuff
 LINEAR_MODULES = [

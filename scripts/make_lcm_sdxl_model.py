@@ -3,8 +3,8 @@ from collections import OrderedDict
 
 import torch
 
-from toolkit.config_modules import ModelConfig
-from toolkit.stable_diffusion_model import StableDiffusion
+from ostris_ai_toolkit.toolkit.config_modules import ModelConfig
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 
 parser = argparse.ArgumentParser()

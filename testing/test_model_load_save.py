@@ -13,10 +13,10 @@ from safetensors.torch import load_file
 from collections import OrderedDict
 import json
 
-from toolkit.config_modules import ModelConfig
-from toolkit.paths import KEYMAPS_ROOT
-from toolkit.saving import convert_state_dict_to_ldm_with_mapping, get_ldm_state_dict_from_diffusers
-from toolkit.stable_diffusion_model import StableDiffusion
+from ostris_ai_toolkit.toolkit.config_modules import ModelConfig
+from ostris_ai_toolkit.toolkit.paths import KEYMAPS_ROOT
+from ostris_ai_toolkit.toolkit.saving import convert_state_dict_to_ldm_with_mapping, get_ldm_state_dict_from_diffusers
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 # this was just used to match the vae keys to the diffusers keys
 # you probably wont need this. Unless they change them.... again... again

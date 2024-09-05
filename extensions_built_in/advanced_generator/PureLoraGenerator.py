@@ -1,14 +1,14 @@
 import os
 from collections import OrderedDict
 
-from toolkit.config_modules import ModelConfig, GenerateImageConfig, SampleConfig, LoRMConfig
-from toolkit.lorm import ExtractMode, convert_diffusers_unet_to_lorm
-from toolkit.sd_device_states_presets import get_train_sd_device_state_preset
-from toolkit.stable_diffusion_model import StableDiffusion
+from ostris_ai_toolkit.toolkit.config_modules import ModelConfig, GenerateImageConfig, SampleConfig, LoRMConfig
+from ostris_ai_toolkit.toolkit.lorm import ExtractMode, convert_diffusers_unet_to_lorm
+from ostris_ai_toolkit.toolkit.sd_device_states_presets import get_train_sd_device_state_preset
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 import gc
 import torch
-from jobs.process import BaseExtensionProcess
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.jobs.process import BaseExtensionProcess
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 
 
 def flush():

@@ -10,28 +10,28 @@ import torch.functional as F
 from safetensors.torch import load_file
 from torch.utils.data import DataLoader, ConcatDataset
 
-from toolkit import train_tools
-from toolkit.basic import value_map, adain, get_mean_std
-from toolkit.clip_vision_adapter import ClipVisionAdapter
-from toolkit.config_modules import GuidanceConfig
-from toolkit.data_loader import get_dataloader_datasets
-from toolkit.data_transfer_object.data_loader import DataLoaderBatchDTO, FileItemDTO
-from toolkit.guidance import get_targeted_guidance_loss, get_guidance_loss, GuidanceType
-from toolkit.image_utils import show_tensors, show_latents
-from toolkit.ip_adapter import IPAdapter
-from toolkit.custom_adapter import CustomAdapter
-from toolkit.prompt_utils import PromptEmbeds, concat_prompt_embeds
-from toolkit.reference_adapter import ReferenceAdapter
-from toolkit.stable_diffusion_model import StableDiffusion, BlankNetwork
-from toolkit.train_tools import get_torch_dtype, apply_snr_weight, add_all_snr_to_noise_scheduler, \
+from ostris_ai_toolkit.toolkit import train_tools
+from ostris_ai_toolkit.toolkit.basic import value_map, adain, get_mean_std
+from ostris_ai_toolkit.toolkit.clip_vision_adapter import ClipVisionAdapter
+from ostris_ai_toolkit.toolkit.config_modules import GuidanceConfig
+from ostris_ai_toolkit.toolkit.data_loader import get_dataloader_datasets
+from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import DataLoaderBatchDTO, FileItemDTO
+from ostris_ai_toolkit.toolkit.guidance import get_targeted_guidance_loss, get_guidance_loss, GuidanceType
+from ostris_ai_toolkit.toolkit.image_utils import show_tensors, show_latents
+from ostris_ai_toolkit.toolkit.ip_adapter import IPAdapter
+from ostris_ai_toolkit.toolkit.custom_adapter import CustomAdapter
+from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds, concat_prompt_embeds
+from ostris_ai_toolkit.toolkit.reference_adapter import ReferenceAdapter
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion, BlankNetwork
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_snr_weight, add_all_snr_to_noise_scheduler, \
     apply_learnable_snr_gos, LearnableSNRGamma
 import gc
 import torch
-from jobs.process import BaseSDTrainProcess
+from ostris_ai_toolkit.jobs.process import BaseSDTrainProcess
 from torchvision import transforms
 from diffusers import EMAModel
 import math
-from toolkit.train_tools import precondition_model_outputs_flow_match
+from ostris_ai_toolkit.toolkit.train_tools import precondition_model_outputs_flow_match
 
 
 def flush():

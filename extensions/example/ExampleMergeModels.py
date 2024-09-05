@@ -2,15 +2,15 @@ import torch
 import gc
 from collections import OrderedDict
 from typing import TYPE_CHECKING
-from jobs.process import BaseExtensionProcess
-from toolkit.config_modules import ModelConfig
-from toolkit.stable_diffusion_model import StableDiffusion
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.jobs.process import BaseExtensionProcess
+from ostris_ai_toolkit.toolkit.config_modules import ModelConfig
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 from tqdm import tqdm
 
 # Type check imports. Prevents circular imports
 if TYPE_CHECKING:
-    from jobs import ExtensionJob
+    from ostris_ai_toolkit.jobs import ExtensionJob
 
 
 # extend standard config classes to add weight

@@ -1,5 +1,5 @@
 # This is an example extension for custom training. It is great for experimenting with new ideas.
-from toolkit.extension import Extension
+from ostris_ai_toolkit.toolkit.extension import Extension
 
 
 # This is for generic training (LoRA, Dreambooth, FineTuning)

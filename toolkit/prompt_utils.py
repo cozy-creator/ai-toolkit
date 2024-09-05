@@ -6,11 +6,11 @@ from safetensors.torch import load_file, save_file
 from tqdm import tqdm
 import random
 
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 import itertools
 
 if TYPE_CHECKING:
-    from toolkit.config_modules import SliderTargetConfig
+    from ostris_ai_toolkit.toolkit.config_modules import SliderTargetConfig
 
 
 class ACTION_TYPES_SLIDER:
@@ -308,7 +308,7 @@ def get_permutations(s, max_permutations=8):
 
 
 def get_slider_target_permutations(target: 'SliderTargetConfig', max_permutations=8) -> List['SliderTargetConfig']:
-    from toolkit.config_modules import SliderTargetConfig
+    from ostris_ai_toolkit.toolkit.config_modules import SliderTargetConfig
     pos_permutations = get_permutations(target.positive, max_permutations=max_permutations)
     neg_permutations = get_permutations(target.negative, max_permutations=max_permutations)
 
@@ -334,7 +334,7 @@ def get_slider_target_permutations(target: 'SliderTargetConfig', max_permutation
 
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 
 @torch.no_grad()

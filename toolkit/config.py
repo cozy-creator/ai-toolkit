@@ -6,7 +6,7 @@ import oyaml as yaml
 import re
 from collections import OrderedDict
 
-from toolkit.paths import TOOLKIT_ROOT
+from ostris_ai_toolkit.toolkit.paths import TOOLKIT_ROOT
 
 possible_extensions = ['.json', '.jsonc', '.yaml', '.yml']
 
@@ -42,12 +42,30 @@ def preprocess_config(config: OrderedDict, name: str = None):
         raise ValueError("config file must have a config section")
     if "name" not in config["config"] and name is None:
         raise ValueError("config file must have a config.name key")
+    
     # we need to replace tags. For now just [name]
     if name is None:
         name = config["config"]["name"]
+
+    # Temporarily remove the callback
+    callback = None
+    if "process" in config["config"] and isinstance(config["config"]["process"], list):
+        for process in config["config"]["process"]:
+            if "callback" in process:
+                callback = process["callback"]
+                del process["callback"]
+
+    # Convert to JSON string, replace [name], and convert back to OrderedDict
     config_string = json.dumps(config)
     config_string = config_string.replace("[name]", name)
     config = json.loads(config_string, object_pairs_hook=OrderedDict)
+
+    # Add the callback back
+    if callback is not None:
+        if "process" in config["config"] and isinstance(config["config"]["process"], list):
+            for process in config["config"]["process"]:
+                process["callback"] = callback
+
     return config
 
 

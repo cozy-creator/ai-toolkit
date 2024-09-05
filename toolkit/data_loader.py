@@ -16,10 +16,10 @@ from torch.utils.data import Dataset, DataLoader, ConcatDataset
 from tqdm import tqdm
 import albumentations as A
 
-from toolkit.buckets import get_bucket_for_image_size, BucketResolution
-from toolkit.config_modules import DatasetConfig, preprocess_dataset_raw_config
-from toolkit.dataloader_mixins import CaptionMixin, BucketsMixin, LatentCachingMixin, Augments, CLIPCachingMixin
-from toolkit.data_transfer_object.data_loader import FileItemDTO, DataLoaderBatchDTO
+from ostris_ai_toolkit.toolkit.buckets import get_bucket_for_image_size, BucketResolution
+from ostris_ai_toolkit.toolkit.config_modules import DatasetConfig, preprocess_dataset_raw_config
+from ostris_ai_toolkit.toolkit.dataloader_mixins import CaptionMixin, BucketsMixin, LatentCachingMixin, Augments, CLIPCachingMixin
+from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import FileItemDTO, DataLoaderBatchDTO
 
 import platform
 
@@ -27,7 +27,7 @@ def is_native_windows():
     return platform.system() == "Windows" and platform.release() != "2"
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 
 class RescaleTransform:

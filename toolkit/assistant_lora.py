@@ -1,10 +1,10 @@
 from typing import TYPE_CHECKING
-from toolkit.config_modules import NetworkConfig
-from toolkit.lora_special import LoRASpecialNetwork
+from ostris_ai_toolkit.toolkit.config_modules import NetworkConfig
+from ostris_ai_toolkit.toolkit.lora_special import LoRASpecialNetwork
 from safetensors.torch import load_file
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 
 def load_assistant_lora_from_path(adapter_path, sd: 'StableDiffusion') -> LoRASpecialNetwork:

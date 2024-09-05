@@ -2,7 +2,7 @@ import importlib
 from collections import OrderedDict
 from typing import List
 
-from jobs.process import BaseProcess
+from ostris_ai_toolkit.jobs.process import BaseProcess
 
 
 class BaseJob:
@@ -47,7 +47,7 @@ class BaseJob:
         if len(self.config['process']) == 0:
             raise ValueError('config file is invalid. "config.process" must be a list of processes')
 
-        module = importlib.import_module('jobs.process')
+        module = importlib.import_module('ostris_ai_toolkit.jobs.process')
 
         # add the processes
         self.process = []

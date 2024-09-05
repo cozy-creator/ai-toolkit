@@ -1,8 +1,8 @@
-from jobs import BaseJob
+from ostris_ai_toolkit.jobs import BaseJob
 from collections import OrderedDict
 from typing import List
-from jobs.process import GenerateProcess
-from toolkit.paths import REPOS_ROOT
+from ostris_ai_toolkit.jobs.process import GenerateProcess
+from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
 
 import sys
 

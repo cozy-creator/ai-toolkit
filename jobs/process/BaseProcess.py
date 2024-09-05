@@ -2,7 +2,7 @@ import copy
 import json
 from collections import OrderedDict
 
-from toolkit.timer import Timer
+from ostris_ai_toolkit.toolkit.timer import Timer
 
 
 class BaseProcess(object):
@@ -23,7 +23,21 @@ class BaseProcess(object):
         self.timer: Timer = Timer(f'{self.name} Timer')
         self.performance_log_every = self.get_conf('performance_log_every', 0)
 
-        print(json.dumps(self.config, indent=4))
+        self.print_config()
+
+    def print_config(self):
+        def serialize(obj):
+            if callable(obj):
+                return "<function>"
+            elif isinstance(obj, dict):
+                return {k: serialize(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [serialize(item) for item in obj]
+            else:
+                return str(obj)
+
+        serializable_config = serialize(self.config)
+        print(json.dumps(serializable_config, indent=4))
 
     def get_conf(self, key, default=None, required=False, as_type=None):
         # split key by '.' and recursively get the value
@@ -58,4 +72,4 @@ class BaseProcess(object):
         self.meta.update(additional_meta)
 
 
-from jobs import BaseJob
+from ostris_ai_toolkit.jobs import BaseJob

@@ -8,7 +8,7 @@ import sys
 
 from torch.cuda.amp import GradScaler
 
-from toolkit.paths import SD_SCRIPTS_ROOT
+from ostris_ai_toolkit.toolkit.paths import SD_SCRIPTS_ROOT
 
 sys.path.append(SD_SCRIPTS_ROOT)
 
@@ -142,7 +142,7 @@ def apply_noise_offset(noise, noise_offset):
 
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import PromptEmbeds
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import PromptEmbeds
 
 
 def concat_prompt_embeddings(
@@ -150,7 +150,7 @@ def concat_prompt_embeddings(
         conditional: 'PromptEmbeds',
         n_imgs: int,
 ):
-    from toolkit.stable_diffusion_model import PromptEmbeds
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import PromptEmbeds
     text_embeds = torch.cat(
         [unconditional.text_embeds, conditional.text_embeds]
     ).repeat_interleave(n_imgs, dim=0)

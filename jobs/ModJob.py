@@ -1,8 +1,8 @@
 import os
 from collections import OrderedDict
-from jobs import BaseJob
-from toolkit.metadata import get_meta_for_safetensors
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.jobs import BaseJob
+from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 
 process_dict = {
     'rescale_lora': 'ModRescaleLoraProcess',

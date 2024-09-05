@@ -1,6 +1,6 @@
 from collections import OrderedDict
-from jobs import TrainJob
-from jobs.process import BaseTrainProcess
+from ostris_ai_toolkit.jobs import TrainJob
+from ostris_ai_toolkit.jobs.process import BaseTrainProcess
 
 
 class TrainFineTuneProcess(BaseTrainProcess):

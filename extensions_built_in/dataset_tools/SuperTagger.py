@@ -13,7 +13,7 @@ from .tools.fuyu_utils import FuyuImageProcessor
 from .tools.image_tools import load_image, ImageProcessor, resize_to_max
 from .tools.llava_utils import LLaVAImageProcessor
 from .tools.caption import default_long_prompt, default_short_prompt, default_replacements
-from jobs.process import BaseExtensionProcess
+from ostris_ai_toolkit.jobs.process import BaseExtensionProcess
 from .tools.sync_tools import get_img_paths
 
 img_ext = ['.jpg', '.jpeg', '.png', '.webp']

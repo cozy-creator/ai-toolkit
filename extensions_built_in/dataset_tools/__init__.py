@@ -1,4 +1,4 @@
-from toolkit.extension import Extension
+from ostris_ai_toolkit.toolkit.extension import Extension
 
 
 class DatasetToolsExtension(Extension):

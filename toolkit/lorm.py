@@ -6,7 +6,7 @@ from diffusers import UNet2DConditionModel
 from torch import Tensor
 from tqdm import tqdm
 
-from toolkit.config_modules import LoRMConfig
+from ostris_ai_toolkit.toolkit.config_modules import LoRMConfig
 
 conv = nn.Conv2d
 lin = nn.Linear

@@ -10,15 +10,15 @@ from torch.utils.data import DataLoader
 from diffusers import StableDiffusionXLAdapterPipeline, StableDiffusionAdapterPipeline
 from tqdm import tqdm
 
-from toolkit.config_modules import ModelConfig, GenerateImageConfig, preprocess_dataset_raw_config, DatasetConfig
-from toolkit.data_transfer_object.data_loader import FileItemDTO, DataLoaderBatchDTO
-from toolkit.sampler import get_sampler
-from toolkit.stable_diffusion_model import StableDiffusion
+from ostris_ai_toolkit.toolkit.config_modules import ModelConfig, GenerateImageConfig, preprocess_dataset_raw_config, DatasetConfig
+from ostris_ai_toolkit.toolkit.data_transfer_object.data_loader import FileItemDTO, DataLoaderBatchDTO
+from ostris_ai_toolkit.toolkit.sampler import get_sampler
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 import gc
 import torch
-from jobs.process import BaseExtensionProcess
-from toolkit.data_loader import get_dataloader_from_datasets
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.jobs.process import BaseExtensionProcess
+from ostris_ai_toolkit.toolkit.data_loader import get_dataloader_from_datasets
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 from controlnet_aux.midas import MidasDetector
 from diffusers.utils import load_image
 

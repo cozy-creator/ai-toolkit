@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from toolkit.models.zipper_resampler import ContextualAlphaMask
+from ostris_ai_toolkit.toolkit.models.zipper_resampler import ContextualAlphaMask
 
 
 # Conv1d MLP

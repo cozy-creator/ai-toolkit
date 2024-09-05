@@ -17,11 +17,11 @@ from diffusers import (
     FlowMatchEulerDiscreteScheduler,
 )
 
-from toolkit.samplers.custom_flowmatch_sampler import CustomFlowMatchEulerDiscreteScheduler
+from ostris_ai_toolkit.toolkit.samplers.custom_flowmatch_sampler import CustomFlowMatchEulerDiscreteScheduler
 
 from k_diffusion.external import CompVisDenoiser
 
-from toolkit.samplers.custom_lcm_scheduler import CustomLCMScheduler
+from ostris_ai_toolkit.toolkit.samplers.custom_lcm_scheduler import CustomLCMScheduler
 
 # scheduler:
 SCHEDULER_LINEAR_START = 0.00085

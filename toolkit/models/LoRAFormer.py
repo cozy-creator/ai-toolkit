@@ -4,17 +4,17 @@ import weakref
 import torch
 import torch.nn as nn
 from typing import TYPE_CHECKING, List, Dict, Any
-from toolkit.models.clip_fusion import ZipperBlock
-from toolkit.models.zipper_resampler import ZipperModule, ZipperResampler
+from ostris_ai_toolkit.toolkit.models.clip_fusion import ZipperBlock
+from ostris_ai_toolkit.toolkit.models.zipper_resampler import ZipperModule, ZipperResampler
 import sys
-from toolkit.paths import REPOS_ROOT
+from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
 sys.path.append(REPOS_ROOT)
-from ipadapter.ip_adapter.resampler import  Resampler
+from ip_adapter.resampler import  Resampler
 from collections import OrderedDict
 
 if TYPE_CHECKING:
-    from toolkit.lora_special import LoRAModule
-    from toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.lora_special import LoRAModule
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 
 class TransformerBlock(nn.Module):

@@ -10,19 +10,19 @@ from typing import Union, TYPE_CHECKING
 from transformers import T5EncoderModel, CLIPTextModel, CLIPTokenizer, T5Tokenizer, CLIPTextModelWithProjection
 from diffusers.models.embeddings import PixArtAlphaTextProjection
 
-from toolkit import train_tools
-from toolkit.paths import REPOS_ROOT
-from toolkit.prompt_utils import PromptEmbeds
+from ostris_ai_toolkit.toolkit import train_tools
+from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
+from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds
 from diffusers import Transformer2DModel
 
 sys.path.append(REPOS_ROOT)
 
-from ipadapter.ip_adapter.attention_processor import AttnProcessor2_0
+from ip_adapter.attention_processor import AttnProcessor2_0
 
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion, PixArtSigmaPipeline
-    from toolkit.custom_adapter import CustomAdapter
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion, PixArtSigmaPipeline
+    from ostris_ai_toolkit.toolkit.custom_adapter import CustomAdapter
 
 
 class TEAdapterCaptionProjection(nn.Module):

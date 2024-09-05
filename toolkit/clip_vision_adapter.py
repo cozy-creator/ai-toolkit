@@ -3,14 +3,14 @@ from typing import TYPE_CHECKING, Mapping, Any
 import torch
 import weakref
 
-from toolkit.config_modules import AdapterConfig
-from toolkit.models.clip_fusion import ZipperBlock
-from toolkit.models.zipper_resampler import ZipperModule
-from toolkit.prompt_utils import PromptEmbeds
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.toolkit.config_modules import AdapterConfig
+from ostris_ai_toolkit.toolkit.models.clip_fusion import ZipperBlock
+from ostris_ai_toolkit.toolkit.models.zipper_resampler import ZipperModule
+from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 from transformers import (
     CLIPImageProcessor,
@@ -18,7 +18,7 @@ from transformers import (
     CLIPVisionModel
 )
 
-from toolkit.resampler import Resampler
+from ostris_ai_toolkit.toolkit.resampler import Resampler
 
 import torch.nn as nn
 

@@ -1,12 +1,12 @@
 import random
 from collections import OrderedDict
 from torch.utils.data import DataLoader
-from toolkit.prompt_utils import concat_prompt_embeds, split_prompt_embeds
-from toolkit.stable_diffusion_model import StableDiffusion, BlankNetwork
-from toolkit.train_tools import get_torch_dtype, apply_snr_weight
+from ostris_ai_toolkit.toolkit.prompt_utils import concat_prompt_embeds, split_prompt_embeds
+from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion, BlankNetwork
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype, apply_snr_weight
 import gc
 import torch
-from jobs.process import BaseSDTrainProcess
+from ostris_ai_toolkit.jobs.process import BaseSDTrainProcess
 
 
 def flush():

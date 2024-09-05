@@ -73,7 +73,7 @@ def get_optimizer(
         if 'warmup_init' not in optimizer_params:
             optimizer_params['warmup_init'] = False
         optimizer = Adafactor(params, lr=float(learning_rate), eps=1e-6, **optimizer_params)
-        from toolkit.util.adafactor_stochastic_rounding import step_adafactor
+        from ostris_ai_toolkit.toolkit.util.adafactor_stochastic_rounding import step_adafactor
         optimizer.step = step_adafactor.__get__(optimizer, Adafactor)
     else:
         raise ValueError(f'Unknown optimizer type {optimizer_type}')

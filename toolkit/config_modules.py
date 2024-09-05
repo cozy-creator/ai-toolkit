@@ -5,14 +5,14 @@ import random
 
 import torch
 
-from toolkit.prompt_utils import PromptEmbeds
+from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds
 
 ImgExt = Literal['jpg', 'png', 'webp']
 
 SaveFormat = Literal['safetensors', 'diffusers']
 
 if TYPE_CHECKING:
-    from toolkit.guidance import GuidanceType
+    from ostris_ai_toolkit.toolkit.guidance import GuidanceType
 
 
 class SaveConfig:
@@ -498,7 +498,7 @@ class SliderConfig:
         self.low_ram = kwargs.get('low_ram', False)
 
         # expand targets if shuffling
-        from toolkit.prompt_utils import get_slider_target_permutations
+        from ostris_ai_toolkit.toolkit.prompt_utils import get_slider_target_permutations
         self.targets: List[SliderTargetConfig] = []
         targets = [SliderTargetConfig(**target) for target in targets]
         # do permutations if shuffle is true

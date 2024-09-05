@@ -19,7 +19,7 @@ if os.environ.get("DEBUG_TOOLKIT", "0") == "1":
     import torch
     torch.autograd.set_detect_anomaly(True)
 import argparse
-from toolkit.job import get_job
+from ostris_ai_toolkit.toolkit.job import get_job
 
 
 def print_end_message(jobs_completed, jobs_failed):

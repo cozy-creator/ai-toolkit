@@ -6,31 +6,31 @@ from torch.nn import Parameter
 from transformers import CLIPImageProcessor, CLIPVisionModelWithProjection, T5EncoderModel, CLIPTextModel, \
     CLIPTokenizer, T5Tokenizer
 
-from toolkit.models.clip_fusion import CLIPFusionModule
-from toolkit.models.clip_pre_processor import CLIPImagePreProcessor
-from toolkit.models.ilora import InstantLoRAModule
-from toolkit.models.single_value_adapter import SingleValueAdapter
-from toolkit.models.te_adapter import TEAdapter
-from toolkit.models.te_aug_adapter import TEAugAdapter
-from toolkit.models.vd_adapter import VisionDirectAdapter
-from toolkit.paths import REPOS_ROOT
-from toolkit.photomaker import PhotoMakerIDEncoder, FuseModule, PhotoMakerCLIPEncoder
-from toolkit.saving import load_ip_adapter_model, load_custom_adapter_model
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.toolkit.models.clip_fusion import CLIPFusionModule
+from ostris_ai_toolkit.toolkit.models.clip_pre_processor import CLIPImagePreProcessor
+from ostris_ai_toolkit.toolkit.models.ilora import InstantLoRAModule
+from ostris_ai_toolkit.toolkit.models.single_value_adapter import SingleValueAdapter
+from ostris_ai_toolkit.toolkit.models.te_adapter import TEAdapter
+from ostris_ai_toolkit.toolkit.models.te_aug_adapter import TEAugAdapter
+from ostris_ai_toolkit.toolkit.models.vd_adapter import VisionDirectAdapter
+from ostris_ai_toolkit.toolkit.paths import REPOS_ROOT
+from ostris_ai_toolkit.toolkit.photomaker import PhotoMakerIDEncoder, FuseModule, PhotoMakerCLIPEncoder
+from ostris_ai_toolkit.toolkit.saving import load_ip_adapter_model, load_custom_adapter_model
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 
 sys.path.append(REPOS_ROOT)
 from typing import TYPE_CHECKING, Union, Iterator, Mapping, Any, Tuple, List, Optional, Dict
 from collections import OrderedDict
-from ipadapter.ip_adapter.attention_processor import AttnProcessor, IPAttnProcessor, IPAttnProcessor2_0, \
+from ip_adapter.attention_processor import AttnProcessor, IPAttnProcessor, IPAttnProcessor2_0, \
     AttnProcessor2_0
-from ipadapter.ip_adapter.ip_adapter import ImageProjModel
-from ipadapter.ip_adapter.resampler import Resampler
-from toolkit.config_modules import AdapterConfig, AdapterTypes
-from toolkit.prompt_utils import PromptEmbeds
+from ip_adapter.ip_adapter import ImageProjModel
+from ip_adapter.resampler import Resampler
+from ostris_ai_toolkit.toolkit.config_modules import AdapterConfig, AdapterTypes
+from ostris_ai_toolkit.toolkit.prompt_utils import PromptEmbeds
 import weakref
 
 if TYPE_CHECKING:
-    from toolkit.stable_diffusion_model import StableDiffusion
+    from ostris_ai_toolkit.toolkit.stable_diffusion_model import StableDiffusion
 
 from transformers import (
     CLIPImageProcessor,
@@ -42,7 +42,7 @@ from transformers import (
     ConvNextImageProcessor,
     UMT5EncoderModel, LlamaTokenizerFast
 )
-from toolkit.models.size_agnostic_feature_encoder import SAFEImageProcessor, SAFEVisionModel
+from ostris_ai_toolkit.toolkit.models.size_agnostic_feature_encoder import SAFEImageProcessor, SAFEVisionModel
 
 from transformers import ViTHybridImageProcessor, ViTHybridForImageClassification
 

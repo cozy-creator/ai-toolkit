@@ -3,7 +3,7 @@ import importlib
 import pkgutil
 from typing import List
 
-from toolkit.paths import TOOLKIT_ROOT
+from ostris_ai_toolkit.toolkit.paths import TOOLKIT_ROOT
 
 
 class Extension(object):
@@ -26,18 +26,19 @@ class Extension(object):
 
 def get_all_extensions() -> List[Extension]:
     extension_folders = ['extensions', 'extensions_built_in']
+    package_dir = ['ostris_ai_toolkit.extensions', 'ostris_ai_toolkit.extensions_built_in']
 
     # This will hold the classes from all extension modules
     all_extension_classes: List[Extension] = []
 
     # Iterate over all directories (i.e., packages) in the "extensions" directory
-    for sub_dir in extension_folders:
+    for i, sub_dir in enumerate(extension_folders):
         extensions_dir = os.path.join(TOOLKIT_ROOT, sub_dir)
+        print(f"extensions_dir: {extensions_dir}")
         for (_, name, _) in pkgutil.iter_modules([extensions_dir]):
             try:
                 # Import the module
-                module = importlib.import_module(f"{sub_dir}.{name}")
-                # Get the value of the AI_TOOLKIT_EXTENSIONS variable
+                module = importlib.import_module(f"{package_dir[i]}.{name}")
                 extensions = getattr(module, "AI_TOOLKIT_EXTENSIONS", None)
                 # Check if the value is a list
                 if isinstance(extensions, list):

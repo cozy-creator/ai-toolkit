@@ -7,10 +7,10 @@ from typing import TYPE_CHECKING, Union
 import torch
 import yaml
 
-from jobs.process.BaseProcess import BaseProcess
+from ostris_ai_toolkit.jobs.process.BaseProcess import BaseProcess
 
 if TYPE_CHECKING:
-    from jobs import TrainJob, BaseJob, ExtensionJob
+    from ostris_ai_toolkit.jobs import TrainJob, BaseJob, ExtensionJob
     from torch.utils.tensorboard import SummaryWriter
     from tqdm import tqdm
 

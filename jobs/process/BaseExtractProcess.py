@@ -3,12 +3,12 @@ from collections import OrderedDict
 
 from safetensors.torch import save_file
 
-from jobs.process.BaseProcess import BaseProcess
-from toolkit.metadata import get_meta_for_safetensors
+from ostris_ai_toolkit.jobs.process.BaseProcess import BaseProcess
+from ostris_ai_toolkit.toolkit.metadata import get_meta_for_safetensors
 
 from typing import ForwardRef
 
-from toolkit.train_tools import get_torch_dtype
+from ostris_ai_toolkit.toolkit.train_tools import get_torch_dtype
 
 
 class BaseExtractProcess(BaseProcess):
