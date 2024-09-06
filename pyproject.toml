@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ostris-ai-toolkit"
+version = "0.1.9"
+description = "A toolkit for AI-related tasks"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Cozy Creator", email = "teggyg123@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch",
+    "torchvision",
+    "safetensors",
+    "diffusers",
+    "transformers",
+    "lycoris-lora==1.8.3",
+    "flatten_json",
+    "pyyaml",
+    "oyaml",
+    "tensorboard",
+    "kornia",
+    "invisible-watermark",
+    "einops",
+    "accelerate",
+    "toml",
+    "albumentations",
+    "pydantic",
+    "omegaconf",
+    "k-diffusion",
+    "open_clip_torch",
+    "timm",
+    "prodigyopt",
+    "controlnet_aux==0.0.7",
+    "python-dotenv",
+    "bitsandbytes",
+    "hf_transfer",
+    "lpips",
+    "pytorch_fid",
+    "optimum-quanto",
+    "sentencepiece",
+    "huggingface_hub",
+    "peft",
+    "gradio",
+    "python-slugify",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ostris/ai-toolkit"
+"Bug Tracker" = "https://github.com/ostris/ai-toolkit/issues"
+
+[tool.setuptools]
+packages = ["ostris_ai_toolkit"]
+package-dir = {"ostris_ai_toolkit" = "src/ostris-ai-toolkit"}
+
+[tool.setuptools.package-data]
+"ostris_ai_toolkit" = ["**/*"]
+
+[tool.setuptools.exclude-package-data]
+"*" = [
+    "__pycache__",
+    "*.pyc",
+]
