@@ -70,7 +70,10 @@ class BaseSDTrainProcess(BaseTrainProcess):
         super().__init__(process_id, job, config)
 
         # Modification
-        self.callback = config.get('callback', None)
+        # self.callback = config.get('callback', None)
+
+        self.progress_callback = config.get('progress_callback', None)
+        self.check_cancel = config.get('check_cancel', None)
 
         self.sd: StableDiffusion
         self.embedding: Union[Embedding, None] = None
@@ -278,9 +281,13 @@ class BaseSDTrainProcess(BaseTrainProcess):
         if self.ema is not None:
             self.ema.train()
 
-        if self.callback:
+        # if self.callback:
+        #     sample_paths = [config.output_path for config in gen_img_config_list]
+        #     self.callback({'type': 'sample', 'step': step, 'paths': sample_paths})
+
+        if self.progress_callback:
             sample_paths = [config.output_path for config in gen_img_config_list]
-            self.callback({'type': 'sample', 'step': step, 'paths': sample_paths})
+            self.progress_callback({'type': 'sample', 'current': step, 'paths': sample_paths})
 
     def update_training_metadata(self):
         o_dict = OrderedDict({
@@ -532,6 +539,9 @@ class BaseSDTrainProcess(BaseTrainProcess):
                     get_torch_dtype(self.save_config.dtype)
                 )
 
+        if self.progress_callback:
+            self.progress_callback({'type': 'save', 'current': step, 'path': file_path})
+
         # save learnable params as json if we have thim
         if self.snr_gos:
             json_data = {
@@ -561,8 +571,8 @@ class BaseSDTrainProcess(BaseTrainProcess):
         if self.ema is not None:
             self.ema.train()
 
-        if self.callback:
-            self.callback({'type': 'save', 'step': step, 'path': file_path})
+        # if self.callback:
+        #     self.callback({'type': 'save', 'step': step, 'path': file_path})
 
         flush()
 
@@ -1642,8 +1652,13 @@ class BaseSDTrainProcess(BaseTrainProcess):
         start_step_num = self.step_num
         did_first_flush = False
         for step in range(start_step_num, self.train_config.steps):
-            if self.callback:
-                self.callback({'type': 'step', 'current': step, 'total': self.train_config.steps})
+            # if self.callback:
+            #     self.callback({'type': 'step', 'current': step, 'total': self.train_config.steps})
+
+            # Check for cancellation
+            if self.check_cancel and self.check_cancel.is_set():
+                self.print("Training cancelled")
+                break
 
             self.timer.start('train_loop')
             if self.train_config.do_random_cfg:
@@ -1801,6 +1816,9 @@ class BaseSDTrainProcess(BaseTrainProcess):
                 self.step_num = step + 1
                 self.grad_accumulation_step += 1
 
+                if self.progress_callback:
+                    self.progress_callback({'type': 'step', 'current': step, 'total': self.train_config.steps})
+
 
         ###################################################################
         ##  END TRAIN LOOP
@@ -1814,8 +1832,11 @@ class BaseSDTrainProcess(BaseTrainProcess):
         print("")
         self.save()
 
-        if self.callback:
-            self.callback({'type': 'finished'})
+        # if self.callback:
+        #     self.callback({'type': 'finished'})
+
+        if self.progress_callback:
+            self.progress_callback({'type': 'finished'})
             
         if self.save_config.push_to_hub:
             if("HF_TOKEN" not in os.environ):

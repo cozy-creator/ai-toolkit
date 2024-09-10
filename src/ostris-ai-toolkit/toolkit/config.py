@@ -47,13 +47,17 @@ def preprocess_config(config: OrderedDict, name: str = None):
     if name is None:
         name = config["config"]["name"]
 
-    # Temporarily remove the callback
-    callback = None
+    # Temporarily remove the progress_callback and check_cancel
+    progress_callback = None
+    check_cancel = None
     if "process" in config["config"] and isinstance(config["config"]["process"], list):
         for process in config["config"]["process"]:
-            if "callback" in process:
-                callback = process["callback"]
-                del process["callback"]
+            if "progress_callback" in process:
+                progress_callback = process["progress_callback"]
+                del process["progress_callback"]
+            if "check_cancel" in process:
+                check_cancel = process["check_cancel"]
+                del process["check_cancel"]
 
     # Convert to JSON string, replace [name], and convert back to OrderedDict
     config_string = json.dumps(config)
@@ -61,10 +65,12 @@ def preprocess_config(config: OrderedDict, name: str = None):
     config = json.loads(config_string, object_pairs_hook=OrderedDict)
 
     # Add the callback back
-    if callback is not None:
-        if "process" in config["config"] and isinstance(config["config"]["process"], list):
-            for process in config["config"]["process"]:
-                process["callback"] = callback
+    if "process" in config["config"] and isinstance(config["config"]["process"], list):
+        for process in config["config"]["process"]:
+            if progress_callback is not None:
+                process["progress_callback"] = progress_callback
+            if check_cancel is not None:
+                process["check_cancel"] = check_cancel
 
     return config
 
