@@ -504,8 +504,11 @@ class StableDiffusion:
                 if not self.is_flux:
                     raise ValueError("Assistant lora is only supported for flux models currently")
 
-                # handle downloading from the hub if needed
-                if not os.path.exists(self.model_config.assistant_lora_path):
+                if os.path.isdir(self.model_config.assistant_lora_path):
+                    self.model_config.assistant_lora_path = os.path.join(
+                        self.model_config.assistant_lora_path, "pytorch_lora_weights.safetensors"
+                    )
+                elif not os.path.exists(self.model_config.assistant_lora_path):
                     print(f"Grabbing assistant lora from the hub: {self.model_config.assistant_lora_path}")
                     new_lora_path = hf_hub_download(
                         self.model_config.assistant_lora_path,
@@ -1318,6 +1321,7 @@ class StableDiffusion:
                         ).images[0]
 
                     gen_config.save_image(img, i)
+                    gen_config.log_image(img, i)
 
                 if self.adapter is not None and isinstance(self.adapter, ReferenceAdapter):
                     self.adapter.clear_memory()
@@ -2634,3 +2638,10 @@ class StableDiffusion:
             }
 
         self.set_device_state(state)
+
+    def text_encoder_to(self, *args, **kwargs):
+        if isinstance(self.text_encoder, list):
+            for encoder in self.text_encoder:
+                encoder.to(*args, **kwargs)
+        else:
+            self.text_encoder.to(*args, **kwargs)
