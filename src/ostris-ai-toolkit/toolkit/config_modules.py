@@ -867,6 +867,7 @@ class GenerateImageConfig:
             unconditional_prompt_embeds: Optional[PromptEmbeds] = None,
     ):
         # this is called after prompt embeds are encoded. We can override them in the future here
+        pass
     
     def log_image(self, image, count: int = 0, max_count=0):
         if self.logger is None:

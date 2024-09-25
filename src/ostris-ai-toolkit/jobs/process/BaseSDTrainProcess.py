@@ -55,9 +55,9 @@ import gc
 
 from tqdm import tqdm
 
-from ...toolkit.config_modules import SaveConfig, LogingConfig, SampleConfig, NetworkConfig, TrainConfig, ModelConfig, \
+from ...toolkit.config_modules import SaveConfig, LoggingConfig, SampleConfig, NetworkConfig, TrainConfig, ModelConfig, \
     GenerateImageConfig, EmbeddingConfig, DatasetConfig, preprocess_dataset_raw_config, AdapterConfig, GuidanceConfig
-from toolkit.logging import create_logger
+from ...toolkit.logging import create_logger
 
 def flush():
     torch.cuda.empty_cache()
