@@ -9,7 +9,7 @@ from collections import OrderedDict
 
 from diffusers import Transformer2DModel, FluxTransformer2DModel
 from transformers import T5EncoderModel, CLIPTextModel, CLIPTokenizer, T5Tokenizer, CLIPVisionModelWithProjection
-from toolkit.models.pixtral_vision import PixtralVisionEncoder, PixtralVisionImagePreprocessor, VisionLanguageAdapter
+from ...toolkit.models.pixtral_vision import PixtralVisionEncoder, PixtralVisionImagePreprocessor, VisionLanguageAdapter
 from transformers import SiglipImageProcessor, SiglipVisionModel
 
 from ...toolkit.config_modules import AdapterConfig
