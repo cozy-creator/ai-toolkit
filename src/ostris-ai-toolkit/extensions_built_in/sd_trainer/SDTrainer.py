@@ -63,7 +63,7 @@ class SDTrainer(BaseSDTrainProcess):
         self.is_bfloat = self.train_config.dtype == "bfloat16" or self.train_config.dtype == "bf16"
 
         self.do_grad_scale = True
-        if self.is_fine_tuning:
+        if self.is_fine_tuning and self.is_bfloat:
             self.do_grad_scale = False
         if self.adapter_config is not None:
             if self.adapter_config.train:
@@ -1197,7 +1197,7 @@ class SDTrainer(BaseSDTrainProcess):
                         self.adapter(conditional_clip_embeds)
 
                 # do the custom adapter after the prior prediction
-                if self.adapter and isinstance(self.adapter, CustomAdapter) and has_clip_image:
+                if self.adapter and isinstance(self.adapter, CustomAdapter) and (has_clip_image or is_reg):
                     quad_count = random.randint(1, 4)
                     self.adapter.train()
                     self.adapter.trigger_pre_te(

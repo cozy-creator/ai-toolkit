@@ -212,6 +212,11 @@ class AdapterConfig:
         self.pixtral_random_image_size: int = kwargs.get('pixtral_random_image_size', False)
 
         self.flux_only_double: bool = kwargs.get('flux_only_double', False)
+        
+        # train and use a conv layer to pool the embedding
+        self.conv_pooling: bool = kwargs.get('conv_pooling', False)
+        self.conv_pooling_stacks: int = kwargs.get('conv_pooling_stacks', 1)
+        self.sparse_autoencoder_dim: Optional[int] = kwargs.get('sparse_autoencoder_dim', None)
 
 
 class EmbeddingConfig:
@@ -390,6 +395,8 @@ class TrainConfig:
 class ModelConfig:
     def __init__(self, **kwargs):
         self.name_or_path: str = kwargs.get('name_or_path', None)
+        # name or path is updated on fine tuning. Keep a copy of the original
+        self.name_or_path_original: str = self.name_or_path
         self.is_v2: bool = kwargs.get('is_v2', False)
         self.is_xl: bool = kwargs.get('is_xl', False)
         self.is_pixart: bool = kwargs.get('is_pixart', False)
@@ -411,6 +418,7 @@ class ModelConfig:
         self.lora_path = kwargs.get('lora_path', None)
         # mainly for decompression loras for distilled models
         self.assistant_lora_path = kwargs.get('assistant_lora_path', None)
+        self.inference_lora_path = kwargs.get('inference_lora_path', None)
         self.latent_space_version = kwargs.get('latent_space_version', None)
 
         # only for SDXL models for now
@@ -444,7 +452,13 @@ class ModelConfig:
         self.attn_masking = kwargs.get("attn_masking", False)
         if self.attn_masking and not self.is_flux:
             raise ValueError("attn_masking is only supported with flux models currently")
-        pass
+        # for targeting a specific layers
+        self.ignore_if_contains: Optional[List[str]] = kwargs.get("ignore_if_contains", None)
+        self.only_if_contains: Optional[List[str]] = kwargs.get("only_if_contains", None)
+        
+        if self.ignore_if_contains is not None or self.only_if_contains is not None:
+            if not self.is_flux:
+                raise ValueError("ignore_if_contains and only_if_contains are only supported with flux models currently")
 
 
 class EMAConfig:
@@ -453,6 +467,11 @@ class EMAConfig:
         self.ema_decay: float = kwargs.get('ema_decay', 0.999)
         # feeds back the decay difference into the parameter
         self.use_feedback: bool = kwargs.get('use_feedback', False)
+        
+        # every update, the params are multiplied by this amount
+        # only use for things without a bias like lora
+        # similar to a decay in an optimizer but the opposite
+        self.param_multiplier: float = kwargs.get('param_multiplier', 1.0)
 
 
 class ReferenceDatasetConfig:
@@ -541,6 +560,8 @@ class DatasetConfig:
         self.dataset_path: str = kwargs.get('dataset_path', None)
 
         self.default_caption: str = kwargs.get('default_caption', None)
+        # trigger word for just this dataset
+        self.trigger_word: str = kwargs.get('trigger_word', None)
         random_triggers = kwargs.get('random_triggers', [])
         # if they are a string, load them from a file
         if isinstance(random_triggers, str) and os.path.exists(random_triggers):
@@ -608,6 +629,8 @@ class DatasetConfig:
 
         # ip adapter / reference dataset
         self.clip_image_path: str = kwargs.get('clip_image_path', None)  # depth maps, etc
+        # get the clip image randomly from the same folder as the image. Useful for folder grouped pairs.
+        self.clip_image_from_same_folder: bool = kwargs.get('clip_image_from_same_folder', False)
         self.clip_image_augmentations: List[dict] = kwargs.get('clip_image_augmentations', None)
         self.clip_image_shuffle_augmentations: bool = kwargs.get('clip_image_shuffle_augmentations', False)
         self.replacements: List[str] = kwargs.get('replacements', [])
