@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # This is needed for creating releases
     steps:
     - name: Check out repository
       uses: actions/checkout@v4
@@ -44,3 +46,11 @@ jobs:
       run: |
         twine check dist/*
         twine upload dist/*
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: Release v${{ github.ref_name }}
+        draft: false
+        prerelease: false
+        generate_release_notes: true
